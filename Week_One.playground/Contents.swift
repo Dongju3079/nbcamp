@@ -2,41 +2,37 @@ import UIKit
 
 class Calculator {
 
-    var firstNumber: Double
+    var Number: Double = 0
 
-    var secondNumber: Double
-    
-    
-    init(first: Double, second: Double) {
-        self.firstNumber = first
-        self.secondNumber = second
-    }
-
-
-    func add() -> Double {
-        return firstNumber + secondNumber
+    func add(_ num:Double)  {
+        Number += num
+        print(Number)
     }
     
-    func substract() -> Double {
-        return firstNumber - secondNumber
+    func substract(_ num:Double) {
+        Number -= num
+        print(Number)
     }
     
-    func multiply() -> Double {
-        return firstNumber * secondNumber
+    func multiply(_ num:Double) {
+        Number *= num
+        print(Number)
     }
     
-    func divide() -> Double {
-        return firstNumber / secondNumber
+    func divide(_ num:Double) {
+        Number /= num
+        print(Number)
     }
     
-    func Modulo() -> Double {
-        return firstNumber.truncatingRemainder(dividingBy: secondNumber)
+    func Modulo(_ num:Double) {
+        Number = Number.truncatingRemainder(dividingBy: num)
+        print(Number)
     }
 }
 
+// 확장해서 반올림 기능추가
 class Inheritance: Calculator {
-    override func divide() -> Double {
-        return round(firstNumber / secondNumber)
+    func reset() {
+        Number = 0
     }
 }
-// 나누기 과정에서 소수점 반올림기능을 추가함
